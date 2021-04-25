@@ -4,7 +4,7 @@ import {App} from './App';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App  title={'Hola desde react-ts'}/>
+        <App  title={'Tasks React'}/>
     </React.StrictMode>,
     document.getElementById('root')
 );
