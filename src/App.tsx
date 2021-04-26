@@ -1,7 +1,6 @@
 import * as React from 'react';
 import TaskForm from "./components/TaskForm";
-
-import {ITask} from "./interface/Task";
+import { ITask } from "./interface/Task"
 
 export class App extends React.Component<IProps, IState> {
 
@@ -12,7 +11,7 @@ export class App extends React.Component<IProps, IState> {
         };
     }
 
-    addNewTask(task: ITask) {
+    addANewTask(task: ITask) {
         this.setState({
             tasks: [...this.state.tasks, task]
         })
@@ -28,17 +27,17 @@ export class App extends React.Component<IProps, IState> {
 
                 <div className={"row"}>
                     <div className="col-md-4">
-                        <TaskForm addTask={this.addNewTask}/>
+                        <TaskForm addANewTask={this.addANewTask}/>
                     </div>
-                </div>
 
+                </div>
             </div>
         )
     }
 }
 
-interface IPTask {
-  name: String;
+interface IProps {
+    title: String;
 }
 
 interface IState {
