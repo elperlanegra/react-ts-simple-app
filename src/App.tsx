@@ -18,7 +18,6 @@ export class App extends React.Component<IProps, IState> {
         })
     }
 
-
     render() {
         return (
             <div className="container pt-4">
@@ -34,13 +33,12 @@ export class App extends React.Component<IProps, IState> {
                 </div>
 
             </div>
-
         )
     }
 }
 
-interface IProps {
-    title: string;
+interface IPTask {
+  name: String;
 }
 
 interface IState {
