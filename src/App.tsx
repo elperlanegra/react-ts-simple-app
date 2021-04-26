@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TaskForm from "./components/TaskForm";
 import { ITask } from "./interface/Task"
+import TaskList from "./components/TaskList";
 
 export class App extends React.Component<IProps, IState> {
 
@@ -9,15 +10,16 @@ export class App extends React.Component<IProps, IState> {
         this.state = {
             tasks: []
         };
+        this.addANewTask = this.addANewTask.bind(this);
     }
 
-    addANewTask(task: ITask) {
+    public addANewTask(task: ITask): void {
         this.setState({
             tasks: [...this.state.tasks, task]
-        })
+        } )
     }
 
-    render() {
+    public render(): JSX.Element {
         return (
             <div className="container pt-4">
 
@@ -27,7 +29,13 @@ export class App extends React.Component<IProps, IState> {
 
                 <div className={"row"}>
                     <div className="col-md-4">
-                        <TaskForm addANewTask={this.addANewTask}/>
+                        <TaskForm addANewTask={this.addANewTask.bind(this)}/>
+                    </div>
+
+                    <div className="col-md-8">
+                        <div className="row">
+                            <TaskList tasks={this.state.tasks} />
+                        </div>
                     </div>
 
                 </div>
