@@ -19,6 +19,13 @@ export class App extends React.Component<IProps, IState> {
         } )
     }
 
+    deleteATask(id: number) {
+        const tasks: ITask[] = this.state.tasks.filter(
+            (task: ITask) => task.id !== id
+        )
+        this.setState({tasks})
+    }
+
     public render(): JSX.Element {
         return (
             <div className="container pt-4">
@@ -34,7 +41,10 @@ export class App extends React.Component<IProps, IState> {
 
                     <div className="col-md-8">
                         <div className="row">
-                            <TaskList tasks={this.state.tasks} />
+                            <TaskList
+                                tasks={this.state.tasks}
+                                deleteATask={this.deleteATask.bind(this)}
+                            />
                         </div>
                     </div>
 
